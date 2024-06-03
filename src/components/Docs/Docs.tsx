@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 import './docs.css'
 const Docs = () => {
 
@@ -8,12 +8,13 @@ const Docs = () => {
             .then(response => response.json())
             .then(response => setData(response))
     }
-    const getOrder = async (title: string) => {
+    const getOrder = async (title: HTMLElement ) => {
+
         await fetch('/docs', {
             method: "POST",
             body: JSON.stringify(
                 {
-                    title: title
+                    title: title.innerHTML
                 }
             ),
             headers: {
@@ -31,7 +32,7 @@ const Docs = () => {
             <div className="container">
                 {!data ? 'Loading...' : data?.map((elem, i) => {
                     return (
-                        <div className="order_title" key={i} onClick={(e) => getOrder(e.target.innerText)}>
+                        <div className="order_title" key={i} onClick={(e) => getOrder(e.target as HTMLElement)}>
                             {elem}
                         </div>
                     )
