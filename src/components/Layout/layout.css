@@ -1,0 +1,9 @@
+.header{
+    padding: 15px;
+    background-color: rgba(44, 44, 44, 0.887);
+    text-align: end;
+}
+.link{
+    color: #fff;
+    margin-right: 30px;
+}
